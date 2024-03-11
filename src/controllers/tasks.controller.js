@@ -1,11 +1,13 @@
 import {pool} from '../db.js'
 
+
+//----------------------------------------------------------------
 export const getAllTasks =async (req,res,next)=>{
     const result=await pool.query('SELECT * FROM task');
-    console.log(result);
+    console.log(result);ñ
     return res.json(result.rows);
 }
-
+//----------------------------------------------------------------
 export const getTask =async (req,res)=>{
     const result=await pool.query('SELECT * FROM task WHERE id = $1',[req.params.id]); //console.log(req.params.id);
     
@@ -19,7 +21,7 @@ export const getTask =async (req,res)=>{
     return res.json(result.rows[0]);
 };
 
-
+//----------------------------------------------------------------
 export const createTask = async(req,res,next)=>{
     const {title, description} = req.body;
     
@@ -39,7 +41,7 @@ export const createTask = async(req,res,next)=>{
 
    
 }
-
+//----------------------------------------------------------------
 export const updateTask =async (req,res)=>{
     const id= req.params.id;
     const {title, description} = req.body;
@@ -55,7 +57,7 @@ export const updateTask =async (req,res)=>{
     return res.json(result.rows[0])
 }
 
-
+//----------------------------------------------------------------
 export const deleteTask =async (req,res)=>{
     const result =await pool.query('DELETE FROM task WHERE id = $1 ',[req.params.id]) //RETURNING *
     console.log(result);
