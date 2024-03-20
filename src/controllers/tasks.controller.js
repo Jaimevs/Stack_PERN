@@ -3,8 +3,10 @@ import {pool} from '../db.js'
 
 //----------------------------------------------------------------
 export const getAllTasks =async (req,res,next)=>{
+    console.log(req.userId);
+    //console.log(req.cookies.token);
     const result=await pool.query('SELECT * FROM task');
-    console.log(result);ñ
+    //console.log(result);
     return res.json(result.rows);
 }
 //----------------------------------------------------------------
