@@ -11,6 +11,6 @@ router.post('/signup',sigup)
 
 router.post('/signout',signout)
 
-router.get('/porfile',isAuth,profile)
+router.get('/profile',isAuth,profile)
 
 export default router;
